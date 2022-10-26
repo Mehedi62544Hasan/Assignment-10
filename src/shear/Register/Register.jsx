@@ -42,6 +42,11 @@ const Register = () => {
         .then(result =>{
             const user = result;
             console.log(user)
+            Swal.fire(
+                'Good job!',
+                'Your Registretion Successfull!',
+                'success'
+              )
         })
         .catch(error => console.error(error))
     }
