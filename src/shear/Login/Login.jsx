@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/AuthProvider';
 const Login = () => {
     const [error, setError] = useState('');
 
-    const { createAccount } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const handleAccountCreate = (event) => {
         event.preventDefault();
@@ -12,16 +12,6 @@ const Login = () => {
         const from = event.target;
         const email = from.email.value;
         const password = from.password.value;
-
-        createAccount(email, password)
-            .then(result => {
-                console.log(result.user)
-                setError('');
-            })
-            .catch(error => {
-                console.error(error);
-                setError(error.message);
-            })
 
     }
     return (
