@@ -7,63 +7,77 @@ import Swal from 'sweetalert2'
 const Register = () => {
     const [error, setError] = useState('');
 
-    const { createAccount, loginGoogle } = useContext(AuthContext);
+    const { createAccount, loginGoogle, updateUserProfile } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
 
-    const handleCreatAccount = (event) =>{
+    const handleCreatAccount = (event) => {
         event.preventDefault();
 
         const from = event.target;
+        const name = from.name.value;
+        const photoURL = from.image.value
         const email = from.email.value;
         const password = from.password.value;
- 
+
         createAccount(email, password)
-        .then(result => {
-             from.reset();
-            setError('');
-            Swal.fire(
-                'Good job!',
-                'Your Registretion Successfull!',
-                'success'
-              )
-        })
-        .catch(error => {
-            console.error(error);
-            Swal.fire({
-                icon: 'error',
-                title: 'Error...',
-                text: error,
-                footer: 'Please Solve Problem!!'
-              })
-            setError(error.message);
-        })
+            .then(result => {
+                from.reset();
+                setError('');
+                handleupdateProfile(name, photoURL);
+                Swal.fire(
+                    'Good job!',
+                    'Your Registretion Successfull!',
+                    'success'
+                )
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error...',
+                    text: error,
+                    footer: 'Please Solve Problem!!'
+                })
+                setError(error.message);
+            })
 
     }
-    const googleLogin =() =>{
+
+    const handleupdateProfile = (name, photoURL) =>{
+        const profile = {
+          displayName: name,
+          photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => { })
+        .catch(error => console.error(error))
+      }
+
+    const googleLogin = () => {
         loginGoogle(googleProvider)
-        .then(result =>{
-            const user = result;
-            console.log(user)
-            Swal.fire(
-                'Good job!',
-                'Your Registretion Successfull!',
-                'success'
-              )
-        })
-        .catch(error => {
-            console.error(error)
-            Swal.fire({
-                icon: 'error',
-                title: 'Error...',
-                text: error,
-                footer: 'Please Solve Problem!!'
-              })
-            setError(error.message);
-        })
+            .then(result => {
+                const user = result;
+                console.log(user)
+                Swal.fire(
+                    'Good job!',
+                    'Your Registretion Successfull!',
+                    'success'
+                )
+            })
+            .catch(error => {
+                console.error(error)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error...',
+                    text: error,
+                    footer: 'Please Solve Problem!!'
+                })
+                setError(error.message);
+            })
     }
 
     return (
-        <div  className='flex justify-center mt-10'>
+        <div className='flex justify-center mt-10'>
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
                 <h1 className="text-2xl font-bold text-center">Registretion</h1>
                 <form onSubmit={handleCreatAccount} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -82,7 +96,7 @@ const Register = () => {
                     <div className="space-y-1 text-sm">
                         <label htmlFor="password" className="block dark:text-gray-400">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
-                        
+
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign in</button>
                 </form>

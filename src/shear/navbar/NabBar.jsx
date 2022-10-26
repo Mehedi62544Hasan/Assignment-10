@@ -119,9 +119,9 @@ console.log(user)
                 </div>
             }
           </li>
-          <li>
+          <li title={user?.displayName}>
             { 
-              user?.photoURL ?  <img src={user.photoURL} alt="" className="object-cover object-center w-full rounded-t-2xl h-9" />
+              user?.photoURL ?  <img src={user.photoURL} alt="" className="object-cover object-center w-full rounded-full h-9" />
               : <UserCircleIcon className="h-10 w-10 " />
             }
             
