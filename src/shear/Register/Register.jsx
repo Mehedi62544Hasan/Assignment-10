@@ -21,9 +21,7 @@ const Register = () => {
 
         createAccount(email, password)
         .then(result => {
-            const user = result.user
-            console.log(user)
-            from.reset();
+             from.reset();
             setError('');
             Swal.fire(
                 'Good job!',
