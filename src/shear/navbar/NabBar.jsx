@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SparklesIcon } from '@heroicons/react/24/solid'
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const NabBar = () => {
@@ -17,64 +17,67 @@ const NabBar = () => {
           
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 aria-label="Our product"
                 title="Our product"
                 className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
               >
                 Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/statistics"
+              <Link
+                to="/statistics"
                 aria-label="Our product"
                 title="Our product"
                 className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/blog"
+              <Link
+                to="/blog"
                 aria-label="Our product"
                 title="Our product"
                 className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
               >
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 aria-label="About us"
                 title="About us"
                 className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
               >
                 dark
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/login"
                 aria-label="About us"
                 title="About us"
                 className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
               >
                 Log in
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/register"
                 aria-label="About us"
                 title="About us"
                 className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
               >
                 Sign up
-              </a>
+              </Link>
+            </li>
+            <li>
+              <SparklesIcon className="h-10 w-10 "/>
             </li>
           </ul>
           <div className="lg:hidden">
@@ -130,64 +133,64 @@ const NabBar = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/"
                           aria-label="Our product"
                           title="Our product"
                           className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                         >
                           Courses
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/statistics"
+                        <Link
+                          to="/statistics"
                           aria-label="Our product"
                           title="Our product"
                           className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                         >
                           FAQ
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/blog"
+                        <Link
+                          to="/blog"
                           aria-label="Our product"
                           title="Our product"
                           className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                         >
                           Blog
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/about"
+                        <Link
+                          to="/about"
                           aria-label="About us"
                           title="About us"
                           className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                         >
                           dark
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/about"
+                        <Link
+                           to="/login"
                           aria-label="About us"
                           title="About us"
                           className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                         >
                           Log in
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/about"
+                        <Link
+                          to="/register"
                           aria-label="About us"
                           title="About us"
                           className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                         >
                           Sign up
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </nav>

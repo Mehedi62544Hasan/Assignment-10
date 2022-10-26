@@ -1,11 +1,11 @@
- import './App.css';
-import NavBar from './shear/navbar/NabBar';
-import NabBar from './shear/navbar/NabBar';
-
+ import { RouterProvider } from 'react-router-dom';
+import './App.css';
+import { router } from './router/Router';
+  
 function App() {
   return (
-    <div className="App">
-      <NavBar></NavBar>
+    <div className="App bg-violet-200">
+        <RouterProvider router={router}></RouterProvider>
      </div>
   );
 }
