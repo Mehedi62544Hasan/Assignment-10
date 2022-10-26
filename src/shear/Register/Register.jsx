@@ -1,6 +1,8 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import Swal from 'sweetalert2'
+
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -21,7 +23,13 @@ const Register = () => {
         .then(result => {
             const user = result.user
             console.log(user)
+            from.reset();
             setError('');
+            Swal.fire(
+                'Good job!',
+                'Your Registretion Successfull!',
+                'success'
+              )
         })
         .catch(error => {
             console.error(error);

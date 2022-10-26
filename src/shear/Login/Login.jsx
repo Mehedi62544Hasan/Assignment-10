@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import Swal from 'sweetalert2'
+
 
 const Login = () => {
     const [error, setError] = useState('');
 
-    const { user } = useContext(AuthContext);
+    const { user, signIn } = useContext(AuthContext);
 
     const handleAccountCreate = (event) => {
         event.preventDefault();
@@ -13,6 +15,15 @@ const Login = () => {
         const email = from.email.value;
         const password = from.password.value;
 
+        signIn(email, password)
+        .then(result =>{
+            console.log(result.user)
+            Swal.fire(
+                'Good job!',
+                'Your Login Successfull!',
+                'success'
+              )
+        })
     }
     return (
         <div className='flex justify-center mt-10'>
