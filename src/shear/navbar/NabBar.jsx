@@ -27,15 +27,8 @@ console.log(user)
           'success'
         )
        })
-      .catch(error => {
-        console.error(error)
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>'
-        })
-      })
+      .catch(error => console.error(error))
+      
   }
 
   return (

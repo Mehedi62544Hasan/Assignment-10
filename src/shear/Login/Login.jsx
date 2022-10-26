@@ -26,7 +26,16 @@ const Login = () => {
                 'success'
               )
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Error...',
+                text: error,
+                footer: 'Please Solve Problem!!'
+              })
+            setError(error.message);
+        })
     }
 
     const googleLogin =() =>{
@@ -44,10 +53,11 @@ const Login = () => {
             console.error('errorrrr',error)
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
+                title: 'Error...',
+                text: error,
+                footer: 'Please Solve Problem!!'
               })
+            setError(error.message);
         })
     }
 

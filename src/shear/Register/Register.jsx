@@ -16,9 +16,7 @@ const Register = () => {
         const from = event.target;
         const email = from.email.value;
         const password = from.password.value;
-
-
-
+ 
         createAccount(email, password)
         .then(result => {
              from.reset();
@@ -31,6 +29,12 @@ const Register = () => {
         })
         .catch(error => {
             console.error(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error...',
+                text: error,
+                footer: 'Please Solve Problem!!'
+              })
             setError(error.message);
         })
 
@@ -46,7 +50,16 @@ const Register = () => {
                 'success'
               )
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Error...',
+                text: error,
+                footer: 'Please Solve Problem!!'
+              })
+            setError(error.message);
+        })
     }
 
     return (
