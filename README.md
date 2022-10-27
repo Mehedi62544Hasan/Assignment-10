@@ -1,8 +1,8 @@
  # Website
 LEARNING HERO
 
-# live said link 
-Hosted in Netlify -> [Edu Skills](http://localhost:3000/)
+# live site link 
+Hosted in Netlify -> [LEARNING HERO](https://learning-hero-4fbad.web.app/)
 
 # React Router Dom v6.4
 
