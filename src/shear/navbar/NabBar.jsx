@@ -23,7 +23,7 @@ console.log(user)
       .then(() => {
         Swal.fire(
           'Good job!',
-          'Your Login Successfull!',
+          'Your Logout Successfull!',
           'success'
         )
        })

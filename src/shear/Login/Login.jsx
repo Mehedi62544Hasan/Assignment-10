@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2'
 import { GoogleAuthProvider } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -32,7 +33,7 @@ const Login = () => {
                 icon: 'error',
                 title: 'Error...',
                 text: error,
-                footer: 'Please Solve Problem!!'
+                footer: 'Please Check Your Code!!'
               })
             setError(error.message);
         })
@@ -50,12 +51,12 @@ const Login = () => {
               )
         })
         .catch(error => {
-            console.error('errorrrr',error)
+            console.error('errorr',error)
             Swal.fire({
                 icon: 'error',
                 title: 'Error...',
                 text: error,
-                footer: 'Please Solve Problem!!'
+                footer: 'Please Check Your Code!!'
               })
             setError(error.message);
         })
@@ -102,7 +103,7 @@ const Login = () => {
                     </button>
                 </div>
                 <p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
-                    <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">Sign up</a>
+                    <Link rel="noopener noreferrer" to="/register" className="underline dark:text-gray-100">Sign up</Link>
                 </p>
             </div>
         </div>

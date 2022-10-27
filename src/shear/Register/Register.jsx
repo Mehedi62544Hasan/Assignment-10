@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 
 
 const Register = () => {
@@ -36,7 +37,7 @@ const Register = () => {
                     icon: 'error',
                     title: 'Error...',
                     text: error,
-                    footer: 'Please Solve Problem!!'
+                    footer: 'Please Check Your Code!!'
                 })
                 setError(error.message);
             })
@@ -70,7 +71,7 @@ const Register = () => {
                     icon: 'error',
                     title: 'Error...',
                     text: error,
-                    footer: 'Please Solve Problem!!'
+                    footer: 'Please Check Your Code!!'
                 })
                 setError(error.message);
             })
@@ -123,7 +124,7 @@ const Register = () => {
                     </button>
                 </div>
                 <p className="text-xs text-center sm:px-6 dark:text-gray-400">You have an account?
-                    <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">Log in</a>
+                    <Link rel="noopener noreferrer" to="/login" className="underline dark:text-gray-100">Log in</Link>
                 </p>
             </div>
         </div>
