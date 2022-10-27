@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../Blog/Blog";
   import HomeMain from "../layout/HomeMain/HomeMain";
 import Main from "../layout/Main";
 import ErrorPage from "../shear/ErrorPage/ErrorPage";
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
         {
             path: '/register',
             element: <Register></Register>
+        },
+        {
+            path: '/blog',
+            element: <Blog></Blog>
         }
     ]
 }
