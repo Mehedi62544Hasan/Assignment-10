@@ -2,7 +2,7 @@
 LEARNING HERO
 
 # live site link 
-Hosted in Netlify -> [LEARNING HERO](https://learning-hero-4fbad.web.app/)
+Hosted in Firebase -> [LEARNING HERO](https://learning-hero-4fbad.web.app/)
 
 # React Router Dom v6.4
 
