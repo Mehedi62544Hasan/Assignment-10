@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import SecretPage from "../Home/SecretPage/SecretPage";
- import HomeMain from "../layout/HomeMain/HomeMain";
+  import HomeMain from "../layout/HomeMain/HomeMain";
 import Main from "../layout/Main";
 import ErrorPage from "../shear/ErrorPage/ErrorPage";
 import Login from "../shear/Login/Login";
 import Register from "../shear/Register/Register";
 import CategoryDetails from "../shear/RightSaid/CategoryDetails/CategoryDetails";
 import RightSaid from "../shear/RightSaid/RightSaid";
+import SuccessPage from "../shear/RightSaid/SuccessPage/SuccessPage";
 import PrivateRouter from "./PrivateRouter/PrivateRouter";
  
  
@@ -32,8 +32,8 @@ export const router = createBrowserRouter([
                     element: <CategoryDetails></CategoryDetails>
                 },
                 {
-                    path: '/secret',
-                    element: <PrivateRouter><SecretPage></SecretPage></PrivateRouter>
+                    path: '/success',
+                     element: <PrivateRouter><SuccessPage></SuccessPage></PrivateRouter>
                 }
             ]
          },
