@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 const NabBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext)
+  const [toggle, setToggle] = useState(false);
 
   const handleLogOut = () => {
     logOut()
@@ -20,7 +21,10 @@ const NabBar = () => {
         )
       })
       .catch(error => console.error(error))
+  }
 
+  const handleToggle = () => {
+    setToggle(!toggle)
   }
 
   return (
@@ -38,7 +42,7 @@ const NabBar = () => {
             <Link
               to="/"
               aria-label="Our product"
-              title="Our product"
+              title="Courses"
               className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
             >
               Courses
@@ -48,7 +52,7 @@ const NabBar = () => {
             <Link
               to="/statistics"
               aria-label="Our product"
-              title="Our product"
+              title="FAQ"
               className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
             >
               FAQ
@@ -58,23 +62,20 @@ const NabBar = () => {
             <Link
               to="/blog"
               aria-label="Our product"
-              title="Our product"
+              title="Blog"
               className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
             >
               Blog
             </Link>
           </li>
-          <li>
-            <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
-              <span>Light</span>
-              <span className="relative">
-                <input id="Toggle1" type="checkbox" className="hidden peer" />
-                <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
-                <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
-              </span>
-              <span>Dark</span>
-             </label>
+
+          <li onClick={handleToggle} className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600">
+            {
+              toggle ? 'Dark' : 'Light'
+            }
           </li>
+
+
           <li>
             {
               user?.uid ?
@@ -82,10 +83,10 @@ const NabBar = () => {
                   <Link
                     onClick={handleLogOut}
                     aria-label="About us"
-                    title="About us"
+                    title="Log out"
                     className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                   >
-                    Log Out
+                    Log out
                   </Link>
                 </>
                 : <div className="lg:flex align-center">
@@ -93,7 +94,7 @@ const NabBar = () => {
                     <Link
                       to="/login"
                       aria-label="About us"
-                      title="About us"
+                      title="Log in"
                       className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                     >
                       Log in
@@ -103,7 +104,7 @@ const NabBar = () => {
                     <Link
                       to="/register"
                       aria-label="About us"
-                      title="About us"
+                      title="sign up"
                       className="font-bold ml-6 tracking-wide transition-colors duration-200 hover:text-red-600"
                     >
                       Sign up
@@ -176,7 +177,7 @@ const NabBar = () => {
                       <Link
                         to="/"
                         aria-label="Our product"
-                        title="Our product"
+                        title="Courses"
                         className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                       >
                         Courses
@@ -186,7 +187,7 @@ const NabBar = () => {
                       <Link
                         to="/statistics"
                         aria-label="Our product"
-                        title="Our product"
+                        title="FAQ"
                         className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                       >
                         FAQ
@@ -196,27 +197,22 @@ const NabBar = () => {
                       <Link
                         to="/blog"
                         aria-label="Our product"
-                        title="Our product"
+                        title="Blog"
                         className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                       >
                         Blog
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to="/about"
-                        aria-label="About us"
-                        title="About us"
-                        className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
-                      >
-                        dark
-                      </Link>
+                    <li onClick={handleToggle} className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600">
+                      {
+                        toggle ? 'Dark' : 'Light'
+                      }
                     </li>
                     <li>
                       <Link
                         to="/login"
                         aria-label="About us"
-                        title="About us"
+                        title="Log in"
                         className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                       >
                         Log in
@@ -226,7 +222,7 @@ const NabBar = () => {
                       <Link
                         to="/register"
                         aria-label="About us"
-                        title="About us"
+                        title="Sign up"
                         className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                       >
                         Sign up
