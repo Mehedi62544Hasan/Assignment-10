@@ -1,6 +1,8 @@
 import { ArrowDownTrayIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { PDFDownloadLink } from "@react-pdf/renderer";
+ import DownloadPdf from '../../../DownloadPdf/DownloadPdf';
 
 const CategoryDetails = () => {
     const subject = useLoaderData();
@@ -31,12 +33,26 @@ const CategoryDetails = () => {
                     </div>
                     <div className='relative'>
                     <h5 className="mb-3 text-3xl text-violet-600 font-extrabold leading-none sm:text-4xl">{title}</h5>
+                    
+                    <PDFDownloadLink
+              document={<DownloadPdf>{description}</DownloadPdf>}
+              filename="FORM"
+            >
+              {({ loading }) =>
+                loading ? (
+                  <button>Loading Document...</button>
+                ) : (
+                  <button>
                     <ArrowDownTrayIcon className='h-8 absolute top-1 right-0 text-red-600 hover:text-violet-600'></ArrowDownTrayIcon>
+                  </button>
+                )
+              }
+            </PDFDownloadLink>
                     </div>
                     <p className="mb-5 text-gray-800">{description.slice(0, 200)}</p>
                     <div  className="flex items-center justify-between">
                         <p>$ {price}</p>
-                        <p> {time}</p>
+                        <p>{time}</p>
                     </div>
                     <div className="flex items-center justify-between">
                             <Link to="/" className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">

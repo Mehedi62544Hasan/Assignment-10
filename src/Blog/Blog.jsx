@@ -1,10 +1,9 @@
 import React from 'react';
-import './Blog.css';
-
+ 
 const Blog = () => {
     return (
-        <div className='grid grid-cols-2'>
-            <div id='blog'>
+        <div className='lg:grid grid-cols-2'>
+            <div className='m-12'>
                 <h1 className='text-5xl'>01</h1>
                 <h1 className='text-violet-600'>what is cors?</h1>
                 <p>
@@ -12,7 +11,7 @@ const Blog = () => {
                     Works: Everything starts on the client side, before sending the main request. The client sends a CORS preflight request to a service for resources with parameters in HTTP headers (CORS headers). The service responses using the same headers with different or the same values. The client decides, based on a CORS preflight response, if he can or cannot send the main request to the service. The web browser (client) will throw an error if the response does not meet the requirements of CORS preflight.
                 </p>
             </div>
-            <div id='blog'>
+            <div className='m-12'>
                 <h1 className='text-5xl'>02</h1>
                 <h1 className='text-violet-600'>Why are you using firebase? What other options do you have to implement authentication?</h1>
                 <p>
@@ -27,7 +26,7 @@ const Blog = () => {
                     Heroku etc.
                 </p>
             </div>
-            <div id='blog'>
+            <div className='m-12'>
                 <h1 className='text-5xl'>03</h1>
                 <h1 className='text-violet-600'>How does the private route work?</h1>
                 <p>
@@ -36,7 +35,7 @@ const Blog = () => {
                     Work The react private route component renders child components (children) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state pro
                 </p>
             </div>
-            <div id='blog'>
+            <div className='m-12'>
                 <h1 className='text-5xl'>04</h1>
                 <h1 className='text-violet-600'> What is Node? How does Node work?</h1>
                 <p>

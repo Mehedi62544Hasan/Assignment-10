@@ -1,13 +1,12 @@
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import { useContext } from 'react';
+ import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const SuccessPage = () => {
     const {user} = useContext(AuthContext);
     const { displayName, email, photoURL } = user;
     console.log(user)
-
 
     return (
         <div className="col-span-2 lg:mt-28 mx-auto h-96 lg:w-96 justify-center max-w-full p-6 shadow-md rounded-3xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
