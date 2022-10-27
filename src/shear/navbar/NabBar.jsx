@@ -10,14 +10,6 @@ const NabBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext)
 
-console.log(user)
-
-
-
-
-
-
-
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -26,9 +18,9 @@ console.log(user)
           'Your Logout Successfull!',
           'success'
         )
-       })
+      })
       .catch(error => console.error(error))
-      
+
   }
 
   return (
@@ -88,7 +80,7 @@ console.log(user)
                 <>
                   <Link
                     onClick={handleLogOut}
-                     aria-label="About us"
+                    aria-label="About us"
                     title="About us"
                     className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
                   >
@@ -96,35 +88,35 @@ console.log(user)
                   </Link>
                 </>
                 : <div className="lg:flex align-center">
-                   <>
-                      <Link
-                        to="/login"
-                        aria-label="About us"
-                        title="About us"
-                        className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
-                      >
-                        Log in
-                      </Link>
-                    </>
-                    <>
-                      <Link
-                        to="/register"
-                        aria-label="About us"
-                        title="About us"
-                        className="font-bold ml-6 tracking-wide transition-colors duration-200 hover:text-red-600"
-                      >
-                        Sign up
-                      </Link>
-                    </>
+                  <>
+                    <Link
+                      to="/login"
+                      aria-label="About us"
+                      title="About us"
+                      className="font-bold tracking-wide transition-colors duration-200 hover:text-red-600"
+                    >
+                      Log in
+                    </Link>
+                  </>
+                  <>
+                    <Link
+                      to="/register"
+                      aria-label="About us"
+                      title="About us"
+                      className="font-bold ml-6 tracking-wide transition-colors duration-200 hover:text-red-600"
+                    >
+                      Sign up
+                    </Link>
+                  </>
                 </div>
             }
           </li>
           <li title={user?.displayName}>
-            { 
-              user?.photoURL ?  <img src={user.photoURL} alt="" className="object-cover object-center w-full rounded-full h-9" />
-              : <UserCircleIcon className="h-10 w-10 " />
+            {
+              user?.photoURL ? <img src={user.photoURL} alt="" className="object-cover object-center w-full rounded-full h-9" />
+                : <UserCircleIcon className="h-10 w-10 " />
             }
-            
+
           </li>
         </ul>
         <div className="lg:hidden">

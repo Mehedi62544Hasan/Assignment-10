@@ -2,13 +2,17 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2'
 import { GoogleAuthProvider } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const { user, signIn, loginGoogle } = useContext(AuthContext);
+    const fromm = location.state?.from?.pathname || "/";
+
+    const { signIn, loginGoogle, setLoader } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
 
     const handleAccountCreate = (event) => {
@@ -21,6 +25,7 @@ const Login = () => {
         signIn(email, password)
         .then(result =>{
              from.reset();
+             navigate(fromm, {replace: true})
             Swal.fire(
                 'Good job!',
                 'Your Login Successfull!',
@@ -37,6 +42,9 @@ const Login = () => {
               })
             setError(error.message);
         })
+        .finally(() =>{
+            setLoader(false)
+          })
     }
 
     const googleLogin =() =>{
